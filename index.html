@@ -1,33 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Stress Test Tool</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>NGL Spammer Pro - Full Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --danger: #ff7675;
+            --success: #55efc4;
+            --warning: #fdcb6e;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--light);
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .radio-option input {
+            width: auto;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            background: #5a4bd1;
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background: #e66767;
+        }
+        
+        .results {
+            margin-top: 30px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .result-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .result-success {
+            border-left: 4px solid var(--success);
+        }
+        
+        .result-failure {
+            border-left: 4px solid var(--danger);
+        }
+        
+        .result-message {
+            font-weight: 500;
+        }
+        
+        .result-status {
+            font-size: 0.9rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .status-success {
+            background: rgba(85, 239, 196, 0.2);
+            color: var(--success);
+        }
+        
+        .status-failure {
+            background: rgba(255, 118, 117, 0.2);
+            color: var(--danger);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a4bd1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Network Stress Test Tool</h1>
-        <form>
-            <div class="form-group">
-                <label for="url">URL or IP:</label>
-                <input type="text" id="url" name="url" placeholder="Enter URL or IP">
+        <div class="header">
+            <div class="logo">NGL Spammer Pro</div>
+            <div class="subtitle">Gửi tin nhắn ẩn danh tới bất kỳ link NGL nào</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="username"><i class="fas fa-user"></i> Tên NGL</label>
+            <input type="text" id="username" placeholder="Ví dụ: takayuki" required>
+        </div>
+        
+        <div class="form-group">
+            <label><i class="fas fa-comment-dots"></i> Kiểu tin nhắn</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="mode" value="custom" checked> 
+                    <span>Tùy chỉnh</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="mode" value="random"> 
+                    <span>Ngẫu nhiên</span>
+                </label>
             </div>
-            <div class="form-group">
-                <label for="time">Time (in seconds):</label>
-                <input type="number" id="time" name="time" placeholder="Enter time in seconds">
+        </div>
+        
+        <div class="form-group" id="custom-message-group">
+            <label for="customMessage"><i class="fas fa-pen"></i> Nội dung tùy chỉnh</label>
+            <textarea id="customMessage" rows="3" placeholder="Nhập nội dung tin nhắn..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="count"><i class="fas fa-redo"></i> Số lượng tin nhắn</label>
+            <input type="number" id="count" min="1" value="10" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="delay"><i class="fas fa-clock"></i> Thời gian chờ giữa các tin nhắn (giây)</label>
+            <input type="number" id="delay" min="0.1" step="0.1" value="1.0" required>
+        </div>
+        
+        <button id="startBtn" class="btn btn-block">
+            <i class="fas fa-paper-plane"></i> Bắt đầu gửi
+        </button>
+        
+        <button id="stopBtn" class="btn btn-block btn-danger" style="display: none; margin-top: 10px;">
+            <i class="fas fa-stop"></i> Dừng lại
+        </button>
+        
+        <div class="stats" style="display: none;">
+            <div class="stat-item">
+                <div class="stat-value" id="sentCount">0</div>
+                <div class="stat-label">Đã gửi</div>
             </div>
-            <div class="form-group">
-                <label for="attacks">Number of Requests:</label>
-                <input type="number" id="attacks" name="attacks" placeholder="Enter number of requests">
+            <div class="stat-item">
+                <div class="stat-value" id="successCount">0</div>
+                <div class="stat-label">Thành công</div>
             </div>
-            <div class="form-group">
-                <label for="method">Method:</label>
-                <input type="text" id="method" name="method" placeholder="Enter method (e.g., HTTP)">
+            <div class="stat-item">
+                <div class="stat-value" id="failedCount">0</div>
+                <div class="stat-label">Thất bại</div>
             </div>
-            <button type="submit" class="btn">Start Test</button>
-        </form>
+        </div>
+        
+        <div class="results" id="results" style="display: none;"></div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.getElementById('startBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const resultsDiv = document.getElementById('results');
+            const statsDiv = document.querySelector('.stats');
+            const customMessageGroup = document.getElementById('custom-message-group');
+            const modeRadios = document.querySelectorAll('input[name="mode"]');
+            
+            let isRunning = false;
+            let stopRequested = false;
+            let currentSpamJob = null;
+            
+            // Toggle custom message field based on mode
+            modeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    customMessageGroup.style.display = this.value === 'custom' ? 'block' : 'none';
+                });
+            });
+            
+            startBtn.addEventListener('click', startSpamming);
+            stopBtn.addEventListener('click', stopSpamming);
+            
+            function generateRandomMessage() {
+                const specialChars = '@#$%^&*()!';
+                const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                let result = '';
+                
+                // Add 5 random special characters
+                for (let i = 0; i < 5; i++) {
+                    result += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+                }
+                
+                // Add 24 random letters
+                for (let i = 0; i < 24; i++) {
+                    result += letters.charAt(Math.floor(Math.random() * letters.length));
+                }
+                
+                return result;
+            }
+            
+            async function sendNGLMessage(username, message) {
+                const url = "https://ngl.link/api/submit";
+                const headers = {
+                    "User-Agent": "NGL-Android/1.7.1",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                };
+                
+                // Generate random device ID
+                let deviceId = '';
+                const chars = '0123456789abcdef';
+                for (let i = 0; i < 16; i++) {
+                    deviceId += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                
+                const payload = {
+                    "username": username,
+                    "question": message,
+                    "deviceId": deviceId
+                };
+                
+                try {
+                    // Convert payload to URL-encoded form data
+                    const formData = new URLSearchParams();
+                    for (const key in payload) {
+                        formData.append(key, payload[key]);
+                    }
+                    
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: headers,
+                        body: formData
+                    });
+                    
+                    return response.ok;
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    return false;
+                }
+            }
+            
+            function startSpamming() {
+                if (isRunning) return;
+                
+                const username = document.getElementById('username').value.trim();
+                const mode = document.querySelector('input[name="mode"]:checked').value;
+                const count = parseInt(document.getElementById('count').value);
+                const delay = parseFloat(document.getElementById('delay').value) * 1000; // Convert to milliseconds
+                const customMessage = document.getElementById('customMessage').value.trim();
+                
+                if (!username) {
+                    alert('Vui lòng nhập tên NGL');
+                    return;
+                }
+                
+                if (mode === 'custom' && !customMessage) {
+                    alert('Vui lòng nhập nội dung tin nhắn');
+                    return;
+                }
+                
+                if (count <= 0) {
+                    alert('Số lượng phải lớn hơn 0');
+                    return;
+                }
+                
+                if (delay < 100) {
+                    if (!confirm('Cảnh báo: Thời gian chờ dưới 5 giây có thể bị chặn IP hoặc CAPTCHA! Tiếp tục?')) {
+                        return;
+                    }
+                }
+                
+                // Reset UI
+                resultsDiv.innerHTML = '';
+                resultsDiv.style.display = 'block';
+                statsDiv.style.display = 'flex';
+                document.getElementById('sentCount').textContent = '0';
+                document.getElementById('successCount').textContent = '0';
+                document.getElementById('failedCount').textContent = '0';
+                
+                startBtn.style.display = 'none';
+                stopBtn.style.display = 'block';
+                isRunning = true;
+                stopRequested = false;
+                
+                // Start spamming
+                currentSpamJob = {
+                    sent: 0,
+                    success: 0,
+                    failed: 0
+                };
+                
+                const spamInterval = setInterval(async () => {
+                    if (stopRequested || currentSpamJob.sent >= count) {
+                        clearInterval(spamInterval);
+                        isRunning = false;
+                        stopBtn.disabled = false;
+                        stopBtn.innerHTML = '<i class="fas fa-stop"></i> Dừng lại';
+                        startBtn.style.display = 'block';
+                        stopBtn.style.display = 'none';
+                        return;
+                    }
+                    
+                    currentSpamJob.sent++;
+                    const message = mode === 'custom' ? customMessage : generateRandomMessage();
+                    
+                    try {
+                        const success = await sendNGLMessage(username, message);
+                        
+                        if (success) {
+                            currentSpamJob.success++;
+                            addResult(`Tin nhắn ${currentSpamJob.sent}/${count}: ${message}`, true);
+                        } else {
+                            currentSpamJob.failed++;
+                            addResult(`Tin nhắn ${currentSpamJob.sent}/${count}: Gửi thất bại`, false);
+                        }
+                        
+                        updateStats();
+                    } catch (error) {
+                        console.error('Error:', error);
+                        currentSpamJob.failed++;
+                        addResult(`Lỗi khi gửi tin nhắn ${currentSpamJob.sent}/${count}`, false);
+                        updateStats();
+                    }
+                }, delay);
+            }
+            
+            function stopSpamming() {
+                stopRequested = true;
+                stopBtn.disabled = true;
+                stopBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang dừng...';
+            }
+            
+            function addResult(message, success) {
+                const resultItem = document.createElement('div');
+                resultItem.className = `result-item ${success ? 'result-success' : 'result-failure'}`;
+                
+                resultItem.innerHTML = `
+                    <div class="result-message">${message}</div>
+                    <div class="result-status ${success ? 'status-success' : 'status-failure'}">
+                        ${success ? 'THÀNH CÔNG' : 'THẤT BẠI'}
+                    </div>
+                `;
+                
+                resultsDiv.appendChild(resultItem);
+                resultsDiv.scrollTop = resultsDiv.scrollHeight;
+            }
+            
+            function updateStats() {
+                document.getElementById('sentCount').textContent = currentSpamJob.sent;
+                document.getElementById('successCount').textContent = currentSpamJob.success;
+                document.getElementById('failedCount').textContent = currentSpamJob.failed;
+            }
+        });
+    </script>
 </body>
 </html>
