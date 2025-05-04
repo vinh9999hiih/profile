@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | Th4nhPhvcD3v</title>
+    <title>Profile | HoangVinh</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -273,6 +273,77 @@
             background: var(--success);
             color: white;
         }
+
+        /* Thêm style cho phần công cụ */
+        .tools-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tool-card {
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .tool-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .tool-description {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tool-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
         
         @media (max-width: 768px) {
             .profile-container {
@@ -281,6 +352,10 @@
             
             .profile-sidebar, .profile-main {
                 padding: 20px;
+            }
+
+            .tools-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -336,7 +411,7 @@
                 </div>
             </div>
             
-            <button class="btn" style="width: 100%;">
+            <button class="btn">
                 <i class="fas fa-paper-plane"></i> Liên hệ ngay
             </button>
         </div>
@@ -399,6 +474,50 @@
                     Công cụ gửi tin nhắn ẩn danh hàng loạt với nhiều tính năng bảo mật và tùy biến cao. Hỗ trợ gửi tin nhắn tự động với khả năng tùy chỉnh nội dung linh hoạt.
                 </p>
             </div>
+
+            <!-- Thêm phần Công cụ & Dịch vụ -->
+            <h2 class="section-title">Công cụ & Dịch vụ</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <h3 class="tool-title">Cổng thanh toán</h3>
+                    <p class="tool-description">
+                        Cổng thanh toán chính thức cho các dịch vụ và sản phẩm của tôi. Hỗ trợ nhiều phương thức thanh toán.
+                    </p>
+                    <a href="https://vinh9999hiih.github.io/congthanhtoan/" class="tool-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-title">NGL Spammer Pro</h3>
+                    <p class="tool-description">
+                        Công cụ gửi tin nhắn ẩn danh hàng loạt với nhiều tính năng nâng cao dành cho người dùng chuyên nghiệp.
+                    </p>
+                    <a href="https://vinh9999hiih.github.io/hihi/" class="tool-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-title">Security Toolkit</h3>
+                    <p class="tool-description">
+                        Bộ công cụ kiểm thử bảo mật website với các tính năng quét lỗ hổng và phân tích bảo mật.
+                    </p>
+                    <a href="https://your-security-tool-link.com" class="tool-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-title">API Services</h3>
+                    <p class="tool-description">
+                        Dịch vụ API chất lượng cao với nhiều tính năng hữu ích cho phát triển ứng dụng.
+                    </p>
+                    <a href="https://your-api-service-link.com" class="tool-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -446,6 +565,20 @@
                 });
                 
                 link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // Thêm hiệu ứng cho các card công cụ
+            const toolCards = document.querySelectorAll('.tool-card');
+            toolCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0)';
                     this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
                 });
