@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | HoangVinh</title>
+    <title>Dịch Vụ MXH | Buff Follow, Tăng Tương Tác & Công Cụ Premium</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -137,13 +137,9 @@
         }
         
         .facebook { color: #1877f2; }
-        .github { color: #333; }
-        .youtube { color: #ff0000; }
-        .instagram { 
-            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-            color: white;
-        }
+        .zalo { color: #0068ff; }
         .tiktok { color: #000000; }
+        .telegram { color: #0088cc; }
         
         .profile-stats {
             display: grid;
@@ -192,51 +188,201 @@
             border-radius: 3px;
         }
         
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin-bottom: 30px;
         }
         
-        .skill {
+        .service-card {
             background: var(--input-bg);
-            padding: 8px 15px;
-            border-radius: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .service-description {
             font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
         
-        .experience-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .service-price {
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 15px;
         }
         
-        .experience-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
+        .order-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
         }
         
-        .experience-title {
+        .order-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .premium-accounts {
+            margin-top: 30px;
+        }
+        
+        .account-card {
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .account-icon {
+            font-size: 1.5rem;
+            color: var(--warning);
+        }
+        
+        .account-info {
+            flex: 1;
+        }
+        
+        .account-name {
             font-weight: 600;
             margin-bottom: 5px;
         }
         
-        .experience-company {
+        .account-price {
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        /* Cổng thanh toán */
+        .payment-gateway {
+            margin-top: 30px;
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .payment-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
             color: var(--primary);
-            font-weight: 500;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            width: 60px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 5px;
+            background: white;
+            padding: 5px;
+        }
+        
+        .payment-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-btn:hover {
+            background: #00a884;
+            transform: translateY(-2px);
+        }
+        
+        /* Công cụ */
+        .tools-section {
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .tool-name {
+            font-weight: 600;
             margin-bottom: 5px;
         }
         
-        .experience-date {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-bottom: 10px;
+        .tool-description {
+            font-size: 0.85rem;
+            opacity: 0.8;
         }
         
-        .experience-description {
-            font-size: 0.9rem;
+        .access-btn {
+            background: var(--warning);
+            color: var(--dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .access-btn:hover {
+            background: #f8c555;
+            transform: translateY(-2px);
         }
         
         .theme-switcher {
@@ -254,75 +400,6 @@
             z-index: 10;
         }
         
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-        
-        .badge-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .badge-success {
-            background: var(--success);
-            color: white;
-        }
-
-        /* Thêm style cho phần công cụ */
-        .tools-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .tool-card {
-            background: var(--input-bg);
-            border-radius: 10px;
-            padding: 15px;
-            transition: all 0.3s;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .tool-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .tool-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .tool-description {
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-        }
-
-        .tool-link {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .tool-link:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
         .btn {
             background: var(--primary);
             color: white;
@@ -338,7 +415,7 @@
             justify-content: center;
             gap: 8px;
         }
-
+        
         .btn:hover {
             background: var(--secondary);
             transform: translateY(-2px);
@@ -353,8 +430,8 @@
             .profile-sidebar, .profile-main {
                 padding: 20px;
             }
-
-            .tools-container {
+            
+            .services {
                 grid-template-columns: 1fr;
             }
         }
@@ -368,153 +445,236 @@
             </div>
             
             <img src="https://f.top4top.io/p_34100xi421.jpg" alt="Profile Avatar" class="avatar">
-            <h1 class="profile-name">Wang Jin <span class="badge badge-primary">PRO</span></h1>
-            <p class="profile-title">Full-stack Developer & Security Researcher</p>
+            <h1 class="profile-name">Dịch Vụ MXH PRO</h1>
+            <p class="profile-title">Chuyên gia tăng trưởng mạng xã hội</p>
             <p class="profile-bio">
-                Chuyên gia phát triển ứng dụng web và nghiên cứu bảo mật. Đam mê công nghệ và sáng tạo những sản phẩm hữu ích cho cộng đồng.
+                Cung cấp dịch vụ tăng follow, tương tác chất lượng cao và các tài khoản premium giá tốt nhất thị trường.
             </p>
             
             <div class="social-links">
                 <a href="https://facebook.com" class="social-link facebook" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://github.com" class="social-link github" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://youtube.com" class="social-link youtube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://instagram.com" class="social-link instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://zalo.me/yournumber" class="social-link zalo" target="_blank">
+                    <i class="fas fa-comment-dots"></i>
                 </a>
                 <a href="https://tiktok.com" class="social-link tiktok" target="_blank">
                     <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://t.me/yourchannel" class="social-link telegram" target="_blank">
+                    <i class="fab fa-telegram"></i>
                 </a>
             </div>
             
             <div class="profile-stats">
                 <div class="stat-item">
-                    <div class="stat-value">152</div>
-                    <div class="stat-label">Dự án</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">5.8K</div>
-                    <div class="stat-label">Theo dõi</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">89</div>
+                    <div class="stat-value">5K+</div>
                     <div class="stat-label">Khách hàng</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">7</div>
-                    <div class="stat-label">Năm KN</div>
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Hài lòng</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Hỗ trợ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3K+</div>
+                    <div class="stat-label">Đơn thành công</div>
                 </div>
             </div>
             
-            <button class="btn">
-                <i class="fas fa-paper-plane"></i> Liên hệ ngay
+            <button class="btn" id="contactBtn">
+                <i class="fas fa-headset"></i> Liên hệ ngay
             </button>
         </div>
         
         <div class="profile-main">
-            <h2 class="section-title">Giới thiệu</h2>
+            <h2 class="section-title">Dịch Vụ Của Tôi</h2>
             <p style="margin-bottom: 20px;">
-                Xin chào! Tôi là một lập trình viên full-stack với hơn 7 năm kinh nghiệm trong lĩnh vực phát triển web và bảo mật ứng dụng. Tôi đam mê tạo ra những sản phẩm công nghệ chất lượng cao và có tính ứng dụng thực tiễn.
-            </p>
-            <p>
-                Hiện tại tôi đang tập trung vào phát triển các công cụ hỗ trợ cộng đồng developer và nghiên cứu các giải pháp bảo mật mới. Tôi cũng thường xuyên chia sẻ kiến thức thông qua các bài viết và video hướng dẫn.
+                Chuyên cung cấp các dịch vụ tăng trưởng mạng xã hội chất lượng cao, an toàn và hiệu quả. 
+                Cam kết tăng trưởng tự nhiên, không bot, không risk cho tài khoản của bạn.
             </p>
             
-            <h2 class="section-title" style="margin-top: 30px;">Kỹ năng chuyên môn</h2>
-            <div class="skills">
-                <div class="skill">JavaScript</div>
-                <div class="skill">Python</div>
-                <div class="skill">Node.js</div>
-                <div class="skill">React</div>
-                <div class="skill">Vue.js</div>
-                <div class="skill">HTML/CSS</div>
-                <div class="skill">Penetration Testing</div>
-                <div class="skill">Cybersecurity</div>
-                <div class="skill">Database Design</div>
-                <div class="skill">API Development</div>
-                <div class="skill">Docker</div>
-                <div class="skill">Linux</div>
-            </div>
-            
-            <h2 class="section-title">Kinh nghiệm làm việc</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Senior Full-stack Developer</h3>
-                <div class="experience-company">Công ty Công nghệ ABC <span class="badge badge-success">Hiện tại</span></div>
-                <div class="experience-date">2020 - Nay</div>
-                <p class="experience-description">
-                    - Phát triển và bảo trì các ứng dụng web phức tạp<br>
-                    - Thiết kế kiến trúc hệ thống và API<br>
-                    - Đào tạo và hướng dẫn các developer mới<br>
-                    - Nghiên cứu và triển khai các giải pháp bảo mật
-                </p>
-            </div>
-            
-            <div class="experience-item">
-                <h3 class="experience-title">Security Researcher</h3>
-                <div class="experience-company">Tổ chức An ninh mạng XYZ</div>
-                <div class="experience-date">2018 - 2020</div>
-                <p class="experience-description">
-                    - Phân tích lỗ hổng bảo mật trong các ứng dụng web<br>
-                    - Phát triển các công cụ kiểm thử bảo mật<br>
-                    - Viết báo cáo và khuyến nghị khắc phục<br>
-                    - Tổ chức các buổi training về bảo mật
-                </p>
-            </div>
-            
-            <h2 class="section-title">Dự án nổi bật</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">NGL Spammer Pro</h3>
-                <div class="experience-date">2023</div>
-                <p class="experience-description">
-                    Công cụ gửi tin nhắn ẩn danh hàng loạt với nhiều tính năng bảo mật và tùy biến cao. Hỗ trợ gửi tin nhắn tự động với khả năng tùy chỉnh nội dung linh hoạt.
-                </p>
-            </div>
-
-            <!-- Thêm phần Công cụ & Dịch vụ -->
-            <h2 class="section-title">Công cụ & Dịch vụ</h2>
-            <div class="tools-container">
-                <div class="tool-card">
-                    <h3 class="tool-title">Cổng thanh toán</h3>
-                    <p class="tool-description">
-                        Cổng thanh toán chính thức cho các dịch vụ và sản phẩm của tôi. Hỗ trợ nhiều phương thức thanh toán.
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title">Tăng Follow Instagram/Facebook</h3>
+                    <p class="service-description">
+                        Tăng follow chất lượng cao, tương tác thật từ người dùng thật. An toàn tuyệt đối cho tài khoản.
                     </p>
-                    <a href="https://vinh9999hiih.github.io/congthanhtoan/" class="tool-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    <div class="service-price">Giá từ 50.000đ/100 follow</div>
+                    <a href="#" class="order-btn" id="orderFollowBtn">
+                        <i class="fas fa-shopping-cart"></i> Đặt ngay
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Tăng Like, Reaction</h3>
+                    <p class="service-description">
+                        Tăng like, reaction bài viết, story, reel, video. Hỗ trợ tất cả nền tảng MXH phổ biến.
+                    </p>
+                    <div class="service-price">Giá từ 30.000đ/100 like</div>
+                    <a href="#" class="order-btn" id="orderLikeBtn">
+                        <i class="fas fa-shopping-cart"></i> Đặt ngay
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-share"></i>
+                    </div>
+                    <h3 class="service-title">Tăng Share, Repost</h3>
+                    <p class="service-description">
+                        Tăng share bài viết, repost content giúp bài đăng lan tỏa mạnh, tiếp cận nhiều người hơn.
+                    </p>
+                    <div class="service-price">Giá từ 70.000đ/100 share</div>
+                    <a href="#" class="order-btn" id="orderShareBtn">
+                        <i class="fas fa-shopping-cart"></i> Đặt ngay
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <h3 class="service-title">Tăng Bình luận</h3>
+                    <p class="service-description">
+                        Tăng bình luận chất lượng, nội dung phù hợp với bài đăng của bạn. Tương tác thật 100%.
+                    </p>
+                    <div class="service-price">Giá từ 100.000đ/100 comment</div>
+                    <a href="#" class="order-btn" id="orderCommentBtn">
+                        <i class="fas fa-shopping-cart"></i> Đặt ngay
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Phần Cổng thanh toán -->
+            <div class="payment-gateway">
+                <h3 class="payment-title">Cổng Thanh Toán</h3>
+                <p style="margin-bottom: 15px;">Hỗ trợ nhiều phương thức thanh toán an toàn, nhanh chóng</p>
+                
+                <div class="payment-methods">
+                    <img src="https://i.imgur.com/hX9rMfj.png" alt="MB Bank" class="payment-method">
+                    <img src="https://i.imgur.com/6AStRlN.png" alt="Momo" class="payment-method">
+                    <img src="https://i.imgur.com/5Q5e7XW.png" alt="ZaloPay" class="payment-method">
+                    <img src="https://i.imgur.com/7Q9KQ0z.png" alt="ViettelPay" class="payment-method">
+                </div>
+                
+                <button class="payment-btn" id="paymentBtn">
+                    <i class="fas fa-external-link-alt"></i> Truy cập cổng thanh toán
+                </button>
+            </div>
+            
+            <!-- Phần Tài khoản Premium -->
+            <div class="premium-accounts">
+                <h2 class="section-title">Tài Khoản Premium</h2>
+                <p style="margin-bottom: 20px;">
+                    Cung cấp các tài khoản premium giá rẻ, chất lượng cao, bảo hành dài hạn.
+                </p>
+                
+                <div class="account-card">
+                    <div class="account-icon">
+                        <i class="fab fa-spotify"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="account-name">Spotify Premium</div>
+                        <div class="account-price">150.000đ/6 tháng</div>
+                    </div>
+                    <a href="#" class="order-btn" id="orderSpotifyBtn">
+                        <i class="fas fa-shopping-cart"></i> Mua
+                    </a>
+                </div>
+                
+                <div class="account-card">
+                    <div class="account-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="account-name">YouTube Premium</div>
+                        <div class="account-price">200.000đ/6 tháng</div>
+                    </div>
+                    <a href="#" class="order-btn" id="orderYoutubeBtn">
+                        <i class="fas fa-shopping-cart"></i> Mua
+                    </a>
+                </div>
+                
+                <div class="account-card">
+                    <div class="account-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="account-name">Locket Gold</div>
+                        <div class="account-price">120.000đ/1 năm</div>
+                    </div>
+                    <a href="#" class="order-btn" id="orderLocketBtn">
+                        <i class="fas fa-shopping-cart"></i> Mua
+                    </a>
+                </div>
+                
+                <div class="account-card">
+                    <div class="account-icon">
+                        <i class="fab fa-netflix"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="account-name">Netflix Premium</div>
+                        <div class="account-price">180.000đ/3 tháng</div>
+                    </div>
+                    <a href="#" class="order-btn" id="orderNetflixBtn">
+                        <i class="fas fa-shopping-cart"></i> Mua
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Phần Công cụ của tôi -->
+            <div class="tools-section">
+                <h2 class="section-title">Công Cụ Của Tôi</h2>
+                <p style="margin-bottom: 20px;">
+                    Các công cụ độc quyền hỗ trợ phát triển mạng xã hội và giải trí
+                </p>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="tool-name">NGL Spammer Pro</div>
+                        <div class="tool-description">Công cụ gửi tin nhắn ẩn danh hàng loạt</div>
+                    </div>
+                    <a href="https://your-ngl-tool-link.com" class="access-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập
                     </a>
                 </div>
                 
                 <div class="tool-card">
-                    <h3 class="tool-title">NGL Spammer Pro</h3>
-                    <p class="tool-description">
-                        Công cụ gửi tin nhắn ẩn danh hàng loạt với nhiều tính năng nâng cao dành cho người dùng chuyên nghiệp.
-                    </p>
-                    <a href="https://vinh9999hiih.github.io/hihi/" class="tool-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="tool-name">Auto React Tool</div>
+                        <div class="tool-description">Tự động reaction bài viết theo lịch trình</div>
+                    </div>
+                    <a href="https://your-react-tool-link.com" class="access-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập
                     </a>
                 </div>
                 
                 <div class="tool-card">
-                    <h3 class="tool-title">Security Toolkit</h3>
-                    <p class="tool-description">
-                        Bộ công cụ kiểm thử bảo mật website với các tính năng quét lỗ hổng và phân tích bảo mật.
-                    </p>
-                    <a href="https://your-security-tool-link.com" class="tool-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
-                    </a>
-                </div>
-                
-                <div class="tool-card">
-                    <h3 class="tool-title">API Services</h3>
-                    <p class="tool-description">
-                        Dịch vụ API chất lượng cao với nhiều tính năng hữu ích cho phát triển ứng dụng.
-                    </p>
-                    <a href="https://your-api-service-link.com" class="tool-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Truy cập ngay
+                    <div class="tool-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="account-info">
+                        <div class="tool-name">Multi-Sharer</div>
+                        <div class="tool-description">Đăng bài đồng thời lên nhiều nền tảng</div>
+                    </div>
+                    <a href="https://your-sharer-tool-link.com" class="access-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Truy cập
                     </a>
                 </div>
             </div>
@@ -556,32 +716,32 @@
                 localStorage.setItem('darkMode', 'false');
             }
             
-            // Thêm hiệu ứng khi hover vào social links
-            const socialLinks = document.querySelectorAll('.social-link');
-            socialLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-                });
+            // Xử lý nút liên hệ
+            const contactBtn = document.getElementById('contactBtn');
+            contactBtn.addEventListener('click', function() {
+                window.open('https://zalo.me/yournumber', '_blank');
             });
-
-            // Thêm hiệu ứng cho các card công cụ
-            const toolCards = document.querySelectorAll('.tool-card');
-            toolCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-                });
+            
+            // Xử lý nút cổng thanh toán
+            const paymentBtn = document.getElementById('paymentBtn');
+            paymentBtn.addEventListener('click', function() {
+                window.open('https://your-payment-gateway-link.com', '_blank');
+            });
+            
+            // Xử lý các nút đặt hàng
+            const orderButtons = [
+                'orderFollowBtn', 'orderLikeBtn', 'orderShareBtn', 'orderCommentBtn',
+                'orderSpotifyBtn', 'orderYoutubeBtn', 'orderLocketBtn', 'orderNetflixBtn'
+            ];
+            
+            orderButtons.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.open('https://your-payment-gateway-link.com', '_blank');
+                    });
+                }
             });
         });
     </script>
