@@ -736,16 +736,15 @@
                 'orderSpotifyBtn', 'orderYoutubeBtn', 'orderLocketBtn', 'orderNetflixBtn'
             ];
             
-            orderButtons.forEach(btnId => {
-                const btn = document.getElementById(btnId);
-                if (btn) {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.open('https://www.facebook.com/takayukimedia/', '_blank');
-                    });
-                }
-            });
+        orderButtons.forEach(btnId => {
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    window.open('https://www.facebook.com/takayukimedia', '_blank');
+                });
+            }
         });
+    }); // Close DOMContentLoaded event listener
     </script>
 </body>
 </html>
